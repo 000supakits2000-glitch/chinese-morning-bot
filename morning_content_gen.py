@@ -1,8 +1,9 @@
 from datetime import datetime
 import json
 import os
+import time
 from google import genai
-from google.genai import types
+from google.genai import errors, types
 from pydantic import BaseModel, Field
 
 API_KEY = os.environ.get("GEMINI_API_KEY", "ใส่_API_KEY_ของคุณที่นี่")
@@ -28,7 +29,6 @@ class MorningPostContent(BaseModel):
 
 
 def get_thai_and_chinese_day():
-    """ดึงข้อมูลวันปัจจุบันเพื่อนำไปใส่ในคำอวยพรให้ตรงวัน"""
     days_map = {
         0: ("วันจันทร์", "星期一 / 週一"),
         1: ("วันอังคาร", "星期二 / 週二"),
@@ -58,17 +58,40 @@ def generate_morning_content(theme: str = "ดอกไม้มงคลรั�
     6. Image Prompt ต้องเป็นภาพนิ่งของดอกไม้เท่านั้น ห้ามมีภาพอาหาร ปฏิทิน หรือสัตว์ 12 นักษัตร
     """
 
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema=MorningPostContent,
-            temperature=0.8,
-        ),
-    )
+    # รายชื่อโมเดลสำรอง หากตัวหลักคิวเต็ม (503) จะสลับไปใช้ตัวถัดไปอัตโนมัติ
+    candidate_models = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-pro"]
 
-    return json.loads(response.text)
+    for model_name in candidate_models:
+        for attempt in range(1, 4):  # ลองสูงสุดโมเดลละ 3 รอบ
+            try:
+                print(
+                    f"กำลังเรียกใช้โมเดล {model_name} (รอบที่ {attempt})..."
+                )
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        response_schema=MorningPostContent,
+                        temperature=0.8,
+                    ),
+                )
+                return json.loads(response.text)
+
+            except errors.ServerError as e:
+                print(
+                    f"⚠️ เซิร์ฟเวอร์คิวเต็ม ({e}) รอ 10 วินาทีแล้วลองใหม่..."
+                )
+                time.sleep(10)
+            except errors.ClientError as e:
+                print(
+                    f"⚠️ โมเดล {model_name} ไม่พร้อมใช้งาน ({e}) เปลี่ยนไปใช้โมเดลสำรอง..."
+                )
+                break  # ข้ามไปลองโมเดลถัดไปทันที
+
+    raise RuntimeError(
+        "ไม่สามารถสร้างคอนเทนต์ได้ เนื่องจากเซิร์ฟเวอร์ Google คิวเต็มทุกโมเดล"
+    )
 
 
 if __name__ == "__main__":
@@ -78,6 +101,7 @@ if __name__ == "__main__":
         theme="ดอกไม้มงคลสีสดใส อวยพรให้สุขภาพแข็งแรงและมีความสุข"
     )
 
+    print("\n" + "=" * 50)
     print(f"🌸 ดอกไม้: {result['flower_name_th']}")
     print(f"🖼️ ข้อความบังคับวางบนรูป: {result['text_on_image_zh']}")
     print("-" * 50)
@@ -86,3 +110,4 @@ if __name__ == "__main__":
     print(f"🇹🇭 คำแปลไทย:\n{result['translation_th']}")
     print("-" * 50)
     print(f"🎨 Prompt สร้างรูปภาพ:\n{result['image_prompt_en']}")
+    print("=" * 50)
