@@ -15,16 +15,16 @@ client = genai.Client(api_key=API_KEY)
 class ChinesePostItem(BaseModel):
     flower_name_th: str = Field(description="ชื่อดอกไม้มงคลภาษาไทย")
     text_line_1_zh: str = Field(
-        description="ข้อความบรรทัดบนภาษาจีนตัวเต็ม เช่น 早上好！"
+        description="ข้อความบรรทัดบนภาษาจีนตัวเต็ม ห้ามระบุวัน เช่น 早上好！, 早安吉祥！"
     )
     text_line_2_zh: str = Field(
-        description="ข้อความบรรทัดกลางภาษาจีนตัวเต็ม 4 ตัวอักษร เช่น 吉祥如意, 身體健康"
+        description="ข้อความบรรทัดกลางภาษาจีนตัวเต็ม 4 ตัวอักษร ห้ามระบุวัน เช่น 吉祥如意, 身體健康, 花開富貴"
     )
     text_line_3_zh: str = Field(
-        description="ข้อความบรรทัดล่างภาษาจีนตัวเต็ม 4 ตัวอักษร เช่น 笑口常開, 歲歲平安, 平安喜樂"
+        description="ข้อความบรรทัดล่างภาษาจีนตัวเต็ม 4 ตัวอักษร ห้ามระบุวัน เช่น 笑口常開, 歲歲平安, 平安喜樂"
     )
     caption_zh: str = Field(
-        description="แคปชั่นโพสต์ภาษาจีนตัวเต็ม 2-3 บรรทัด อ่านแล้วอบอุ่น เป็นสิริมงคล ใส่อีโมจิให้เหมาะสม"
+        description="แคปชั่นโพสต์ภาษาจีนตัวเต็ม 2-3 บรรทัด อ่านแล้วอบอุ่น เป็นสิริมงคล ห้ามระบุวันในสัปดาห์ (ห้ามใช้ 週一 ถึง 週日 หรือ 星期) ใส่อีโมจิให้เหมาะสม"
     )
     translation_th: str = Field(
         description="คำแปลภาษาไทยของข้อความบนภาพและแคปชั่น"
@@ -37,7 +37,7 @@ class ChinesePostItem(BaseModel):
 class ThaiPostItem(BaseModel):
     flower_name_th: str = Field(description="ชื่อดอกไม้มงคลภาษาไทย")
     text_line_1_th: str = Field(
-        description="ข้อความบรรทัดบนภาษาไทยสั้นๆ 2-3 คำ เช่น สวัสดีวันพุธ, อรุณสวัสดิ์"
+        description="ข้อความบรรทัดบนภาษาไทยสั้นๆ 2-3 คำ (ระบุวันให้ตรงกับวันนี้ เช่น สวัสดีวันพุธ หรือ อรุณสวัสดิ์)"
     )
     text_line_2_th: str = Field(
         description="ข้อความบรรทัดล่างภาษาไทยสั้นๆ 2-4 คำ เช่น สุขภาพแข็งแรง, ยิ้มรับความสุข, โชคดีมีชัย"
@@ -65,13 +65,13 @@ def get_thai_now():
 
 def get_thai_day_info():
     days_map = {
-        0: ("วันจันทร์", "星期一 / 週一", "สีเหลือง / สีทอง"),
-        1: ("วันอังคาร", "星期二 / 週二", "สีชมพู"),
-        2: ("วันพุธ", "星期三 / 週三", "สีเขียว / สีทอง"),
-        3: ("วันพฤหัสบดี", "星期四 / 週四", "สีส้ม / สีแสด"),
-        4: ("วันศุกร์", "星期五 / 週五", "สีฟ้า / สีน้ำเงิน"),
-        5: ("วันเสาร์", "星期六 / 週六", "สีม่วง"),
-        6: ("วันอาทิตย์", "星期日 / 週日", "สีแดง"),
+        0: ("วันจันทร์", "สีเหลือง / สีทอง"),
+        1: ("วันอังคาร", "สีชมพู"),
+        2: ("วันพุธ", "สีเขียว / สีทอง"),
+        3: ("วันพฤหัสบดี", "สีส้ม / สีแสด"),
+        4: ("วันศุกร์", "สีฟ้า / สีน้ำเงิน"),
+        5: ("วันเสาร์", "สีม่วง"),
+        6: ("วันอาทิตย์", "สีแดง"),
     }
     return days_map[get_thai_now().weekday()]
 
@@ -104,7 +104,7 @@ def get_landscape_recipes(count: int = 5) -> str:
 
 
 def call_gemini_with_retry(prompt: str, schema_class):
-    """ฟังก์ชันเรียก AI พร้อมระบบรอคิวและสลับโมเดลสำรองตระกูล Flash และ Flash-Lite"""
+    """ฟังก์ชันเรียก AI พร้อมระบบรอคิวและสลับโมเดลสำรอง"""
     candidate_models = [
         "gemini-3.8-flash",
         "gemini-3.8-flash-lite",
@@ -113,7 +113,7 @@ def call_gemini_with_retry(prompt: str, schema_class):
     ]
 
     for model_name in candidate_models:
-        for attempt in range(1, 5):  # ลองสูงสุดโมเดลละ 4 รอบ
+        for attempt in range(1, 5):
             try:
                 print(
                     f"กำลังเรียกใช้โมเดล {model_name} (รอบที่ {attempt})..."
@@ -130,8 +130,8 @@ def call_gemini_with_retry(prompt: str, schema_class):
                 print(f"✅ สำเร็จด้วยโมเดล {model_name}!")
                 return json.loads(response.text)
 
-            except errors.ServerError as e:
-                wait_sec = 15 * attempt  # รอ 15วิ, 30วิ, 45วิ, 60วิ
+            except errors.ServerError:
+                wait_sec = 15 * attempt
                 print(
                     f"⚠️ เซิร์ฟเวอร์คิวเต็ม (503) รอ {wait_sec} วินาทีแล้วลองใหม่..."
                 )
@@ -151,12 +151,11 @@ def call_gemini_with_retry(prompt: str, schema_class):
 
 
 def generate_chinese_posts():
-    day_th, day_zh, _ = get_thai_day_info()
     zh_recipes = get_landscape_recipes(5)
 
     prompt = f"""
     คุณคือผู้เชี่ยวชาญการสร้าง Prompt ภาพโปสการ์ดอวยพรสวัสดีตอนเช้าสไตล์ทิวทัศน์จีนมงคล (Chinese Auspicious Morning Landscape Greeting Card Art)
-    จงคิดคอนเทนต์สำหรับกลุ่มชาวจีน (早安吉祥如意花語圖) วันนี้ ({day_th} / {day_zh}) จำนวน **5 ชุด** ไม่ซ้ำกัน
+    จงคิดคอนเทนต์สำหรับกลุ่มชาวจีน (早安吉祥如意花語圖) จำนวน **5 ชุด** ไม่ซ้ำกัน
     
     อ้างอิงตามโจทย์ภาพด้านล่างนี้ทีละชุด:
     {zh_recipes}
@@ -167,15 +166,16 @@ def generate_chinese_posts():
     - ทิวทัศน์ตรงกลางและฉากหลังตามโจทย์ มีนกกระเรียนมงคล (red-crowned cranes) บินบนท้องฟ้าสีทองอ่อนๆ
     - **ข้อความลอยเด่นบนท้องฟ้าด้านบน (ไม่มีป้ายแดง):** `In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "[text_line_1_zh]", Line 2: "[text_line_2_zh]", Line 3: "[text_line_3_zh]"`
     
-    กฎเหล็กของกลุ่มจีน:
+    กฎเหล็กของกลุ่มจีนที่ห้ามละเมิดเด็ดขาด:
     1. ภาษาจีนทั้งหมดต้องใช้ **อักษรจีนตัวเต็ม (Traditional Chinese)** เท่านั้น (เช่น 笑口常開, 歲歲平安, 吉祥如意, 身體健康)
-    2. **ห้าม** กล่าวถึงหรือมีภาพเกี่ยวกับ: ดวงชะตา 12 นักษัตร (十二生肖), อาหาร/ของกิน (美食), ปฏิทิน (日历), การเมือง (政治) และศาสนา (宗教) เด็ดขาด
+    2. **ห้ามระบุวันในสัปดาห์โดยเด็ดขาด** (ห้ามมีคำว่า 週一, 週二, 週三, 週四, 週五, 週六, 週日 หรือ 星期 ทั้งในภาพและในแคปชั่น ให้ใช้คำอวยพรทั่วไปที่ใช้ได้ทุกวันแทน)
+    3. **ห้าม** กล่าวถึงหรือมีภาพเกี่ยวกับ: ดวงชะตา 12 นักษัตร (十二生肖), อาหาร/ของกิน (美食), ปฏิทิน (日历), การเมือง (政治) และศาสนา (宗教) เด็ดขาด
     """
     return call_gemini_with_retry(prompt, ChineseBatch)["posts"]
 
 
 def generate_thai_posts():
-    day_th, _, day_color = get_thai_day_info()
+    day_th, day_color = get_thai_day_info()
     th_recipes = get_landscape_recipes(5)
 
     prompt = f"""
@@ -195,14 +195,14 @@ def generate_thai_posts():
 
 
 if __name__ == "__main__":
-    print("=== เริ่มสร้างคอนเทนต์ส่วนที่ 1: กลุ่มจีน (5 ชุด) ===")
+    print("=== เริ่มสร้างคอนเทนต์ส่วนที่ 1: กลุ่มจีน (ไม่ระบุวัน - 5 ชุด) ===")
     zh_posts = generate_chinese_posts()
 
-    print("\n=== เริ่มสร้างคอนเทนต์ส่วนที่ 2: กลุ่มไทย (5 ชุด) ===")
+    print("\n=== เริ่มสร้างคอนเทนต์ส่วนที่ 2: กลุ่มไทย (ระบุวัน - 5 ชุด) ===")
     th_posts = generate_thai_posts()
 
     now_str = get_thai_now().strftime("%d/%m/%Y เวลา %H:%M น.")
-    day_th, _, day_color = get_thai_day_info()
+    day_th, day_color = get_thai_day_info()
 
     lines = []
     lines.append("=" * 65)
@@ -213,7 +213,7 @@ if __name__ == "__main__":
     lines.append("=" * 65)
 
     lines.append(
-        "\n🇨🇳 [ส่วนที่ 1: กลุ่มจีน 早安吉祥如意花語圖 - 5 ชุด]"
+        "\n🇨🇳 [ส่วนที่ 1: กลุ่มจีน 早安吉祥如意花語圖 - 5 ชุด (ไม่ระบุวัน ใช้ได้ทุกวัน)]"
     )
     lines.append(
         "⚠️ กฎกลุ่ม: โพสต์ได้สูงสุดไม่เกิน 5 โพสต์/วัน | ใช้จีนตัวเต็มทั้งหมด"
@@ -233,7 +233,7 @@ if __name__ == "__main__":
         lines.append("-" * 50)
 
     lines.append(
-        "\n\n🇹🇭 [ส่วนที่ 2: กลุ่มไทย ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน - 5 ชุด]"
+        "\n\n🇹🇭 [ส่วนที่ 2: กลุ่มไทย ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน - 5 ชุด (ระบุวัน)]"
     )
     lines.append("=" * 65)
 
