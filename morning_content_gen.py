@@ -50,9 +50,12 @@ class ThaiPostItem(BaseModel):
     )
 
 
-class DailyDualGroupBatch(BaseModel):
-    chinese_posts: List[ChinesePostItem]
-    thai_posts: List[ThaiPostItem]
+class ChineseBatch(BaseModel):
+    posts: List[ChinesePostItem]
+
+
+class ThaiBatch(BaseModel):
+    posts: List[ThaiPostItem]
 
 
 def get_thai_now():
@@ -74,7 +77,6 @@ def get_thai_day_info():
 
 
 def get_landscape_recipes(count: int = 5) -> str:
-    """สุ่มจับคู่ ดอกไม้ + ทิวทัศน์ขุนเขาและสายน้ำจีนมงคล เพื่อให้ทั้ง 5 ภาพไม่ซ้ำมุมมองกัน"""
     flowers = [
         "vibrant pink Peony flowers and overhanging cherry blossom branches (ดอกโบตั๋นและซากุระ)",
         "blooming pink Lotus flowers in the pond and pink Plum Blossoms overhead (ดอกบัวชมพูและดอกเหมย)",
@@ -101,39 +103,17 @@ def get_landscape_recipes(count: int = 5) -> str:
     return "\n".join(recipes)
 
 
-def generate_batch_content():
-    day_th, day_zh, day_color = get_thai_day_info()
-    zh_recipes = get_landscape_recipes(5)
-    th_recipes = get_landscape_recipes(5)
-
-    prompt = f"""
-    คุณคือผู้เชี่ยวชาญการสร้าง Prompt ภาพโปสการ์ดอวยพรสวัสดีตอนเช้าสไตล์ทิวทัศน์จีนมงคลสุดอลังการ (Breathtaking Chinese Auspicious Morning Landscape Greeting Card Art)
-    จงคิดคอนเทนต์สำหรับวันนี้ ({day_th} / {day_zh}) แบ่งเป็น **กลุ่มละ 5 ชุด (รวม 10 ชุด)**
-    
-    อ้างอิงตามโจทย์ภาพด้านล่างนี้ทีละชุดห้ามซ้ำกัน:
-    [โจทย์ภาพสำหรับกลุ่มจีน 5 ชุด]
-    {zh_recipes}
-    
-    [โจทย์ภาพสำหรับกลุ่มไทย 5 ชุด - ปรับโทนสีดอกไม้หรือแสงให้เข้ากับ{day_th} ({day_color}) อย่างลงตัว]
-    {th_recipes}
-    
-    โครงสร้าง Prompt ภาพ (image_prompt_en) ที่ต้องเขียนให้ละเอียดทุกชุด:
-    - สัดส่วนแนวตั้ง `9:16 vertical aspect ratio` ภาพวาดดิจิทัลอาร์ต 3D กึ่งภาพถ่ายสมจริง สีสันสดใสเจิดจ้า แสงอาทิตย์ยามเช้าส่องประกายอบอุ่น (Vibrant luminous digital painting and 3D photorealistic scenery, radiant golden sunrise rays, dreamy morning mist, ultra-detailed)
-    - **ฉากหน้าและกรอบภาพ:** กิ่งดอกไม้มงคลยื่นลงมาจากมุมบนซ้าย และพุ่มดอกไม้บานสะพรั่งเต็มพื้นที่ด้านล่าง (ตามโจทย์ดอกไม้แต่ละชุด)
-    - **ทิวทัศน์ตรงกลางและฉากหลัง:** ใส่รายละเอียดทิวทัศน์ตามโจทย์แต่ละชุด มีนกกระเรียนมงคล (red-crowned cranes) บินอยู่บนท้องฟ้าสีทองอ่อนๆ
-    - **ข้อความลอยเด่นบนท้องฟ้าด้านบน (สำคัญมาก):**
-      * สำหรับกลุ่มจีน ใส่ข้อความ 3 บรรทัด ตัวอักษรพู่กันจีนขนาดใหญ่สีแดงเข้มขอบทองอร่าม ประดับลายเมฆมงคลสีทองเล็กๆ ด้านข้าง (NO red hanging sign/banner, text floats cleanly in the bright sky): `In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "[text_line_1_zh]", Line 2: "[text_line_2_zh]", Line 3: "[text_line_3_zh]"`
-      * สำหรับกลุ่มไทย ใส่ข้อความ 2 บรรทัด ตัวอักษรภาษาไทยขนาดใหญ่สีแดงเข้มขอบทองอร่าม อ่านง่ายชัดเจนลอยเด่นบนท้องฟ้าด้านบน: `In the upper bright sunrise sky, large bold glossy crimson-red Thai typography text with gleaming gold outlines and subtle golden light glow, reading Line 1: "[text_line_1_th]" and Line 2: "[text_line_2_th]"`
-    
-    กฎเหล็กของกลุ่มจีนที่ห้ามละเมิดเด็ดขาด:
-    1. ภาษาจีนทั้งหมดต้องใช้ **อักษรจีนตัวเต็ม (Traditional Chinese)** เท่านั้น (เช่น 笑口常開, 歲歲平安, 吉祥如意, 身體健康)
-    2. **ห้าม** กล่าวถึงหรือมีภาพเกี่ยวกับ: ดวงชะตา 12 นักษัตร (十二生肖), อาหาร/ของกิน (美食), ปฏิทิน (日历), การเมือง (政治) และศาสนา (宗教) เด็ดขาด (นกกระเรียนและปลาคาร์ปใช้ได้ตามปกติ)
-    """
-
-    candidate_models = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-3.5-pro"]
+def call_gemini_with_retry(prompt: str, schema_class):
+    """ฟังก์ชันเรียก AI พร้อมระบบรอคิวและสลับโมเดลสำรองตระกูล Flash และ Flash-Lite"""
+    candidate_models = [
+        "gemini-3.8-flash",
+        "gemini-3.8-flash-lite",
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite",
+    ]
 
     for model_name in candidate_models:
-        for attempt in range(1, 4):
+        for attempt in range(1, 5):  # ลองสูงสุดโมเดลละ 4 รอบ
             try:
                 print(
                     f"กำลังเรียกใช้โมเดล {model_name} (รอบที่ {attempt})..."
@@ -143,29 +123,84 @@ def generate_batch_content():
                     contents=prompt,
                     config=types.GenerateContentConfig(
                         response_mime_type="application/json",
-                        response_schema=DailyDualGroupBatch,
+                        response_schema=schema_class,
                         temperature=0.85,
                     ),
                 )
+                print(f"✅ สำเร็จด้วยโมเดล {model_name}!")
                 return json.loads(response.text)
+
             except errors.ServerError as e:
+                wait_sec = 15 * attempt  # รอ 15วิ, 30วิ, 45วิ, 60วิ
                 print(
-                    f"⚠️ เซิร์ฟเวอร์คิวเต็ม ({e}) รอ 10 วินาทีแล้วลองใหม่..."
+                    f"⚠️ เซิร์ฟเวอร์คิวเต็ม (503) รอ {wait_sec} วินาทีแล้วลองใหม่..."
                 )
-                time.sleep(10)
+                time.sleep(wait_sec)
             except errors.ClientError as e:
                 print(
-                    f"⚠️ โมเดล {model_name} ไม่พร้อมใช้งาน ({e}) เปลี่ยนไปใช้โมเดลสำรอง..."
+                    f"⚠️ โมเดล {model_name} ไม่รองรับ ({e.code}) ข้ามไปใช้โมเดลถัดไป..."
                 )
                 break
+            except Exception as e:
+                print(f"⚠️ เกิดข้อผิดพลาดอื่น: {e} รอ 15 วินาที...")
+                time.sleep(15)
 
     raise RuntimeError(
         "ไม่สามารถสร้างคอนเทนต์ได้ เนื่องจากเซิร์ฟเวอร์ Google คิวเต็มทุกโมเดล"
     )
 
 
+def generate_chinese_posts():
+    day_th, day_zh, _ = get_thai_day_info()
+    zh_recipes = get_landscape_recipes(5)
+
+    prompt = f"""
+    คุณคือผู้เชี่ยวชาญการสร้าง Prompt ภาพโปสการ์ดอวยพรสวัสดีตอนเช้าสไตล์ทิวทัศน์จีนมงคล (Chinese Auspicious Morning Landscape Greeting Card Art)
+    จงคิดคอนเทนต์สำหรับกลุ่มชาวจีน (早安吉祥如意花語圖) วันนี้ ({day_th} / {day_zh}) จำนวน **5 ชุด** ไม่ซ้ำกัน
+    
+    อ้างอิงตามโจทย์ภาพด้านล่างนี้ทีละชุด:
+    {zh_recipes}
+    
+    โครงสร้าง Prompt ภาพ (image_prompt_en) ทุกชุด:
+    - สัดส่วนแนวตั้ง `9:16 vertical aspect ratio` ภาพวาดดิจิทัลอาร์ต 3D กึ่งภาพถ่ายสมจริง สีสันสดใสเจิดจ้า แสงอาทิตย์ยามเช้าส่องประกายอบอุ่น
+    - กิ่งดอกไม้มงคลยื่นลงมาจากมุมบนซ้าย และพุ่มดอกไม้บานสะพรั่งเต็มพื้นที่ด้านล่างตามโจทย์
+    - ทิวทัศน์ตรงกลางและฉากหลังตามโจทย์ มีนกกระเรียนมงคล (red-crowned cranes) บินบนท้องฟ้าสีทองอ่อนๆ
+    - **ข้อความลอยเด่นบนท้องฟ้าด้านบน (ไม่มีป้ายแดง):** `In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "[text_line_1_zh]", Line 2: "[text_line_2_zh]", Line 3: "[text_line_3_zh]"`
+    
+    กฎเหล็กของกลุ่มจีน:
+    1. ภาษาจีนทั้งหมดต้องใช้ **อักษรจีนตัวเต็ม (Traditional Chinese)** เท่านั้น (เช่น 笑口常開, 歲歲平安, 吉祥如意, 身體健康)
+    2. **ห้าม** กล่าวถึงหรือมีภาพเกี่ยวกับ: ดวงชะตา 12 นักษัตร (十二生肖), อาหาร/ของกิน (美食), ปฏิทิน (日历), การเมือง (政治) และศาสนา (宗教) เด็ดขาด
+    """
+    return call_gemini_with_retry(prompt, ChineseBatch)["posts"]
+
+
+def generate_thai_posts():
+    day_th, _, day_color = get_thai_day_info()
+    th_recipes = get_landscape_recipes(5)
+
+    prompt = f"""
+    คุณคือผู้เชี่ยวชาญการสร้าง Prompt ภาพโปสการ์ดอวยพรสวัสดีตอนเช้าสไตล์ทิวทัศน์มงคล
+    จงคิดคอนเทนต์สำหรับกลุ่มคนไทย (ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน) วันนี้ ({day_th} โทนสี{day_color}) จำนวน **5 ชุด** ไม่ซ้ำกัน
+    
+    อ้างอิงตามโจทย์ภาพด้านล่างนี้ทีละชุด (ปรับโทนสีดอกไม้หรือแสงให้เข้ากับ{day_th} {day_color}):
+    {th_recipes}
+    
+    โครงสร้าง Prompt ภาพ (image_prompt_en) ทุกชุด:
+    - สัดส่วนแนวตั้ง `9:16 vertical aspect ratio` ภาพวาดดิจิทัลอาร์ต 3D กึ่งภาพถ่ายสมจริง สีสันสดใสเจิดจ้า แสงอาทิตย์ยามเช้าส่องประกายอบอุ่น
+    - กิ่งดอกไม้มงคลยื่นลงมาจากมุมบนซ้าย และพุ่มดอกไม้บานสะพรั่งเต็มพื้นที่ด้านล่างตามโจทย์
+    - ทิวทัศน์ตรงกลางและฉากหลังตามโจทย์
+    - **ข้อความลอยเด่นบนท้องฟ้าด้านบน:** `In the upper bright sunrise sky, large bold glossy crimson-red Thai typography text with gleaming gold outlines and subtle golden light glow, reading Line 1: "[text_line_1_th]" and Line 2: "[text_line_2_th]"`
+    """
+    return call_gemini_with_retry(prompt, ThaiBatch)["posts"]
+
+
 if __name__ == "__main__":
-    data = generate_batch_content()
+    print("=== เริ่มสร้างคอนเทนต์ส่วนที่ 1: กลุ่มจีน (5 ชุด) ===")
+    zh_posts = generate_chinese_posts()
+
+    print("\n=== เริ่มสร้างคอนเทนต์ส่วนที่ 2: กลุ่มไทย (5 ชุด) ===")
+    th_posts = generate_thai_posts()
+
     now_str = get_thai_now().strftime("%d/%m/%Y เวลา %H:%M น.")
     day_th, _, day_color = get_thai_day_info()
 
@@ -185,7 +220,7 @@ if __name__ == "__main__":
     )
     lines.append("=" * 65)
 
-    for idx, item in enumerate(data["chinese_posts"], start=1):
+    for idx, item in enumerate(zh_posts, start=1):
         lines.append(f"\n--- 🇨🇳 ชุดที่ {idx} ({item['flower_name_th']}) ---")
         lines.append(
             f"🖼️ ข้อความบนท้องฟ้า: {item['text_line_1_zh']} / {item['text_line_2_zh']} / {item['text_line_3_zh']}"
@@ -202,7 +237,7 @@ if __name__ == "__main__":
     )
     lines.append("=" * 65)
 
-    for idx, item in enumerate(data["thai_posts"], start=1):
+    for idx, item in enumerate(th_posts, start=1):
         lines.append(f"\n--- 🇹🇭 ชุดที่ {idx} ({item['flower_name_th']}) ---")
         lines.append(
             f"🖼️ ข้อความบนท้องฟ้า: {item['text_line_1_th']} / {item['text_line_2_th']}"
@@ -218,6 +253,4 @@ if __name__ == "__main__":
     with open("today_post.txt", "w", encoding="utf-8") as f:
         f.write(output_text)
 
-    print(
-        "✅ บันทึกคอนเทนต์สไตล์ทิวทัศน์มงคลทั้ง 10 ชุด ลงไฟล์ today_post.txt แล้ว!"
-    )
+    print("\n✅ บันทึกคอนเทนต์ทั้ง 10 ชุด ลงไฟล์ today_post.txt สำเร็จเรียบร้อย!")
