@@ -5,8 +5,12 @@ on:
     # ตั้งเวลา 04:00 น. เวลาไทย (UTC+7) ซึ่งตรงกับ 21:00 น. UTC ของวันก่อนหน้า
     - cron: '0 21 * * *'
   
-  # เพิ่มปุ่มให้กดสั่งรันด้วยตัวเองได้ทันที (สำหรับทดสอบ)
+  # ปุ่มกดสั่งรันด้วยตัวเองสำหรับทดสอบ
   workflow_dispatch:
+
+# เพิ่มสิทธิ์ให้ GitHub Actions สามารถบันทึกไฟล์กลับเข้า Repository ได้
+permissions:
+  contents: write
 
 jobs:
   generate-content:
@@ -31,3 +35,11 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python morning_content_gen.py
+
+      - name: Save today_post.txt to Repository
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add today_post.txt
+          git commit -m "Update daily morning content (today_post.txt)" || exit 0
+          git push
