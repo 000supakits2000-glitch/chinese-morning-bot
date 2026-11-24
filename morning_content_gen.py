@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import json
 import os
 import time
@@ -40,6 +40,12 @@ class DualGroupMorningContent(BaseModel):
     )
 
 
+def get_thai_now():
+    """ดึงเวลาปัจจุบันตามเวลาประเทศไทย (UTC+7)"""
+    tz_th = timezone(timedelta(hours=7))
+    return datetime.now(tz_th)
+
+
 def get_thai_and_chinese_day():
     days_map = {
         0: ("วันจันทร์", "星期一 / 週一"),
@@ -50,7 +56,7 @@ def get_thai_and_chinese_day():
         5: ("วันเสาร์", "星期六 / 週六"),
         6: ("วันอาทิตย์", "星期日 / 週日"),
     }
-    today_idx = datetime.now().weekday()
+    today_idx = get_thai_now().weekday()
     return days_map[today_idx]
 
 
@@ -118,22 +124,46 @@ if __name__ == "__main__":
     result = generate_morning_content(
         theme="ดอกไม้มงคลสีสดใส อวยพรให้สุขภาพแข็งแรงและมีความสุข"
     )
+    now_str = get_thai_now().strftime("%d/%m/%Y เวลา %H:%M น.")
+    day_th, _ = get_thai_and_chinese_day()
 
-    print("\n" + "=" * 60)
-    print(f"🌸 ดอกไม้ประจำวัน: {result['flower_name_th']}")
-    print("=" * 60)
+    # จัดรูปแบบข้อความสำหรับบันทึกลงไฟล์ today_post.txt
+    output_text = f"""============================================================
+📅 อัปเดตล่าสุด: {day_th}ที่ {now_str} (เวลาไทย)
+🌸 ดอกไม้ประจำวัน: {result['flower_name_th']}
+============================================================
 
-    print("\n🇨🇳 [กลุ่มที่ 1: 早安吉祥如意花語圖]")
-    print(f"🖼️ ข้อความบังคับวางบนรูป: {result['zh_text_on_image']}")
-    print(f"📝 แคปชั่นโพสต์:\n{result['zh_caption']}")
-    print(f"🇹🇭 คำแปลไทย: {result['zh_translation_th']}")
+🎨 [1. Prompt สร้างรูปภาพ - ใช้เจนรูปเดียวได้ทั้ง 2 กลุ่ม]
+{result['image_prompt_en']}
 
-    print("\n" + "-" * 60)
+------------------------------------------------------------
 
-    print("\n🇹🇭 [กลุ่มที่ 2: ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน]")
-    print(f"🖼️ ข้อความวางบนรูป: {result['th_text_on_image']}")
-    print(f"📝 แคปชั่นโพสต์:\n{result['th_caption']}")
+🇨🇳 [2. กลุ่มจีน: 早安吉祥如意花語圖]
+⚠️ กฎกลุ่ม: บังคับใส่ตัวหนังสือลงบนภาพ ห้ามโพสต์ภาพเปล่า
 
-    print("\n" + "=" * 60)
-    print(f"🎨 Prompt สร้างรูปภาพ (ใช้รูปเดียวกันได้เลย):\n{result['image_prompt_en']}")
-    print("=" * 60)
+🖼️ ข้อความวางบนรูป (ก๊อปปี้ไปแปะบนภาพ):
+{result['zh_text_on_image']}
+
+📝 แคปชั่นโพสต์:
+{result['zh_caption']}
+
+🇹🇭 คำแปลไทย:
+{result['zh_translation_th']}
+
+------------------------------------------------------------
+
+🇹🇭 [3. กลุ่มไทย: ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน]
+
+🖼️ ข้อความวางบนรูป (ตัวใหญ่ อ่านง่าย):
+{result['th_text_on_image']}
+
+📝 แคปชั่นโพสต์:
+{result['th_caption']}
+============================================================
+"""
+
+    # บันทึกลงไฟล์ today_post.txt
+    with open("today_post.txt", "w", encoding="utf-8") as f:
+        f.write(output_text)
+
+    print("✅ บันทึกคอนเทนต์ลงไฟล์ today_post.txt เรียบร้อยแล้ว!")
