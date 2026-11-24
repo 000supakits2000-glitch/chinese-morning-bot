@@ -1,97 +1,112 @@
 =================================================================
-📅 อัปเดตล่าสุด: วันอังคารที่ 24/11/2026 เวลา 20:01 น. (เวลาไทย)
-🎨 ธีมสีประจำวัน (สำหรับกลุ่มไทย): สีชมพู | จำนวน: กลุ่มละ 5 ชุด
+📅 อัปเดตล่าสุด: วันพุธที่ 25/11/2026 เวลา 03:17 น. (เวลาไทย)
+🎨 สไตล์ภาพ: ทิวทัศน์ขุนเขา-เก๋งจีน-น้ำตก + ดอกไม้แสงเช้า (สัดส่วน 9:16)
 =================================================================
 
-🇨🇳 [ส่วนที่ 1: กลุ่มจีน 早安吉祥如意花語圖 - 5 ชุด]
-⚠️ กฎกลุ่ม: โพสต์ได้สูงสุดไม่เกิน 5 โพสต์/วัน | บังคับใส่ตัวหนังสือลงบนภาพทุกใบ
+🇨🇳 [ส่วนที่ 1: กลุ่มจีน 早安吉祥如意花語圖 - 5 ชุด (ไม่ระบุวัน ใช้ได้ทุกวัน)]
+⚠️ กฎกลุ่ม: โพสต์ได้สูงสุดไม่เกิน 5 โพสต์/วัน | ใช้จีนตัวเต็มทั้งหมด
 =================================================================
 
---- 🇨🇳 ชุดที่ 1 (ดอกโบตั๋น) ---
-🖼️ ข้อความวางบนรูป: 週二愉快 富貴吉祥
+--- 🇨🇳 ชุดที่ 1 (ดอกไฮเดรนเยียและกุหลาบ) ---
+🖼️ ข้อความบนท้องฟ้า: 早安吉祥！ / 花開富貴 / 平安喜樂
 📝 แคปชั่นโพสต์:
-週二清晨好！願美好的晨光帶來一整天的幸運與平安。祝您福氣滿滿，開懷一笑，花開富貴好運連連！🌸✨☀️
-🇹🇭 คำแปลไทย: ข้อความบนภาพ: สุขสันต์วันอังคาร มั่งมีศรีสุขมงคล / แคปชั่น: อรุณสวัสดิ์เช้าวันอังคาร! ขอให้แสงเช้าอันงดงามนำพาโชคลาภและความสงบสุขมาให้ตลอดทั้งวัน ขอให้ท่านมีบุญบารมีเต็มเปี่ยม เบิกบานใจ ดอกไม้บานนำพาโชคดีมาให้อย่างไม่ขาดสาย!
-🎨 Image Prompt:
-A beautiful pink peony flower in soft morning sunlight, macro shot, delicate pink petals with dew drops, serene garden background, vibrant colors, clear focus, 4:5 aspect ratio, high detail, no text
+晨光初現，帶來無限希望與美好。願您的每一天都如鮮花般燦爛，心想事成，福氣滿滿！清晨問候，祝您平安喜樂，萬事順心！🌸✨
+🇹🇭 คำแปลไทย: ข้อความบนภาพ: สวัสดีเช้าอันเป็นมงคล / ดอกไม้บานนำพาความมั่งคั่ง / สงบสุขและเปี่ยมด้วยความสุข
+
+แคปชั่น: แสงเช้าแรกปรากฏ นำพาความหวังและความงดงามอันไร้ขีดจำกัด ขอให้ทุกวันของคุณสดใสดั่งดอกไม้บาน สมปรารถนา และเต็มไปด้วยโชคลาภ! สวัสดีตอนเช้า ขอให้คุณมีความสุข สงบ และราบรื่นในทุกสิ่ง!
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+9:16 vertical aspect ratio, semi-realistic 3D digital art style with vibrant colors and warm morning sunlight. In the foreground, colorful pink and blue Hydrangeas with blooming roses grow along a stone balustrade, with floral branches extending from the top left corner. In the center, a tranquil classical Chinese garden features a wooden lakeside pavilion, a stone arch bridge over turquoise water with swimming koi fish, misty mountain peaks in the background, and flying red-crowned cranes in the golden sunrise sky. In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "早安吉祥！", Line 2: "花開富貴", Line 3: "平安喜樂".
 --------------------------------------------------
 
---- 🇨🇳 ชุดที่ 2 (ดอกบัว) ---
-🖼️ ข้อความวางบนรูป: 早安吉祥 清心自在
+--- 🇨🇳 ชุดที่ 2 (ดอกบัวชมพูและดอกเหมย) ---
+🖼️ ข้อความบนท้องฟ้า: 早上好！ / 身體健康 / 萬事如意
 📝 แคปชั่นโพสต์:
-早上好！心若陽光，生活處處皆香氣。願您今天平安順心，喜樂相隨，迎來美好的一天！🪷🌿💖
-🇹🇭 คำแปลไทย: ข้อความบนภาพ: อรุณสวัสดิ์เป็นมิ่งมงคล จิตใจผ่องใสเป็นอิสระ / แคปชั่น: อรุณสวัสดิ์! หากหัวใจเป็นดั่งแสงแดด ชีวิตย่อมมีหอมอบอวล ขอให้วันนี้ของท่านราบรื่นปลอดภัย มีความสุขตามติดไปตลอดวัน!
-🎨 Image Prompt:
-Elegant pink lotus flower blooming in a calm pond in early morning sun, soft water reflection, crisp daylight, high quality photograph, 4:5 aspect ratio, no text
+新的一天，送上最真摯的祝福。願您心胸如荷花般純潔豁達，事業如梅花般堅韌挺拔。祝您身體健康，萬事順意，笑口常開！🪷🌿
+🇹🇭 คำแปลไทย: ข้อความบนภาพ: สวัสดีตอนเช้า / สุขภาพร่างกายแข็งแรง / สมปรารถนาในทุกสิ่ง
+
+แคปชั่น: วันใหม่ ขอมอบคำอวยพรที่จริงใจที่สุด ขอให้จิตใจของคุณบริสุทธิ์สดใสดั่งดอกบัว การงานเข้มแข็งดั่งดอกเหมย ขอให้สุขภาพแข็งแรง สมปรารถนาในทุกเรื่อง และมีรอยยิ้มเสมอ!
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+9:16 vertical aspect ratio, semi-realistic 3D digital art style with vibrant vivid colors and golden morning sunlight. In the foreground, blooming pink Lotus flowers in a serene pond and pink Plum Blossoms overhead hanging from the top left corner. In the center background, a majestic traditional Chinese palace pavilion perched on a cliff beside a cascading waterfall, with a stone staircase and glowing stone lanterns, misty mountains, and red-crowned cranes flying in the golden sunrise sky. In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "早上好！", Line 2: "身體健康", Line 3: "萬事如意".
 --------------------------------------------------
 
---- 🇨🇳 ชุดที่ 3 (ดอกกล้วยไม้) ---
-🖼️ ข้อความวางบนรูป: 週二安康 優雅隨心
+--- 🇨🇳 ชุดที่ 3 (ดอกเบญจมาศทองและแมกโนเลีย) ---
+🖼️ ข้อความบนท้องฟ้า: 早安如意！ / 吉祥高照 / 歲歲平安
 📝 แคปชั่นโพสต์:
-週二早安！溫馨的問候送給特別的您。願您心中常駐美好，事事順心，健康快樂每一天！🌺☀️🍃
-🇹🇭 คำแปลไทย: ข้อความบนภาพ: สุขภาพแข็งแรงวันอังคาร งดงามดั่งใจนึก / แคปชั่น: อรุณสวัสดิ์วันอังคาร! ความห่วงใยอันอบอุ่นมอบให้ท่านคนพิเศษ ขอให้หัวใจของท่านคงไว้ซึ่งความงดงาม สมปรารถนาในทุกสิ่ง มีความสุขและสุขภาพดีในทุกๆ วัน!
-🎨 Image Prompt:
-Vibrant pink butterfly orchid branch glowing under soft morning sun rays, lush green blurred background, detailed petals, cinematic lighting, 4:5 aspect ratio, no text
+晨曦漫照，水鄉清麗。願這份清晨的寧靜與溫暖，為您帶來一整天的好心情。祝您吉星高照，歲歲平安，生活美滿幸福！🌼✨
+🇹🇭 คำแปลไทย: ข้อความบนภาพ: สวัสดีตอนเช้าสมปรารถนา / สิริมงคลส่องสว่าง / สงบสุขทุกปี
+
+แคปชั่น: แสงยามเช้าทอฉาย เมืองแห่งสายน้ำงดงาม ขอให้ความสงบและความอบอุ่นในยามเช้านี้นำพาลมหายใจแห่งความสุขมาให้คุณตลอดทั้งวัน ขอให้ดาวมงคลฉายแสง มีความสุขสงบตลอดไป และชีวิตเต็มไปด้วยความสุขความสมบูรณ์!
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+9:16 vertical aspect ratio, semi-realistic 3D digital art style with vibrant bright colors and warm golden morning sunlight. Lush golden Chrysanthemums fill the bottom foreground, and pink Magnolia branches bloom from the top left corner. In the background, a serene Jiangnan ancient water town with white-walled houses, red lanterns, weeping willow trees, traditional wooden boats on a golden river, and an arched stone bridge at sunrise, with red-crowned cranes flying in the sky. In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "早安如意！", Line 2: "吉祥高照", Line 3: "歲歲平安".
 --------------------------------------------------
 
---- 🇨🇳 ชุดที่ 4 (ดอกเหมย) ---
-🖼️ ข้อความวางบนรูป: 喜上眉梢 萬事順意
+--- 🇨🇳 ชุดที่ 4 (ดอกกล้วยไม้เหลืองและหอมหมื่นลี้) ---
+🖼️ ข้อความบนท้องฟ้า: 早安迎福！ / 福星高照 / 闔家歡樂
 📝 แคปชั่นโพสต์:
-清晨好！陽光捎去我的祝福，願您生活甜美，平安吉祥，喜樂常伴身旁！🌸✨😊
-🇹🇭 คำแปลไทย: ข้อความบนภาพ: เปี่ยมสุขเปี่ยมยินดี สมปรารถนาในทุกสิ่ง / แคปชั่น: อรุณสวัสดิ์! แสงแดดส่งฝากคำอวยพรของฉันไป ขอให้ชีวิตของท่านหวานชื่น ปลอดภัยมงคล มีความสุขอู่รอบตัวเสมอ!
-🎨 Image Prompt:
-Beautiful pink plum blossom branches in early morning sunlight, bright clear sky background, sharp details, fresh spring mood, 4:5 aspect ratio, no text
+桂花飄香，蘭花吐艷。微風拂過清晨，帶來滿滿的福氣與吉祥。願您與家人平安健康，闔家歡樂，幸福綿長！💛🌸
+🇹🇭 คำแปลไทย: ข้อความบนภาพ: สวัสดีเช้ารับโชค / ดาวแห่งโชคลาภส่องสว่าง / ครอบครัวเปรมปรีดิ์
+
+แคปชั่น: กลิ่นหอมหมื่นลี้โชยมา ดอกกล้วยไม้เบ่งบานงดงาม สายลมยามเช้าพัดพาโชคลาภและความเป็นสิริมงคลมาให้อย่างเต็มเปี่ยม ขอให้คุณและครอบครัวมีสุขภาพแข็งแรง มีรอยยิ้ม และมีความสุขยั่งยืน!
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+9:16 vertical aspect ratio, semi-realistic 3D digital art style with vibrant colors and radiant sunrise lighting. Bottom foreground filled with radiant yellow Phalaenopsis Orchids and golden Osmanthus blossoms with branches drooping from upper left. In the background, a serene Jiangnan ancient water town with white-walled houses, red lanterns, weeping willow trees, traditional wooden boats floating on a golden river under an arched stone bridge, with flying red-crowned cranes above. In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "早安迎福！", Line 2: "福星高照", Line 3: "闔家歡樂".
 --------------------------------------------------
 
---- 🇨🇳 ชุดที่ 5 (ดอกทานตะวัน) ---
-🖼️ ข้อความวางบนรูป: 朝氣蓬勃 陽光滿懷
+--- 🇨🇳 ชุดที่ 5 (ดอกโบตั๋นและซากุระ) ---
+🖼️ ข้อความบนท้องฟ้า: 清晨吉祥！ / 富貴吉祥 / 心想事成
 📝 แคปชั่นโพสต์:
-新的一天早安！帶著滿滿的陽光與希望出發，願您的週二充滿微笑與好運！🌻☀️💖
-🇹🇭 คำแปลไทย: ข้อความบนภาพ: สดชื่นกระปรี้กระเปร่า อบอุ่นเต็มหัวใจ / แคปชั่น: อรุณสวัสดิ์วันใหม่! ก้าวออกไปพร้อมแสงแดดและความหวังเต็มเปี่ยม ขอให้วันอังคารของท่านเต็มไปด้วยรอยยิ้มและโชคดี!
-🎨 Image Prompt:
-A striking golden sunflower with a soft pink sunrise halo background, morning dew on petals, warm sunlight, crisp focus, close up photo, 4:5 aspect ratio, no text
+牡丹國色，櫻花漫天。陽光穿透薄霧，帶來萬物復甦的生機。願您的生活如百花般絢麗多彩，事業順利，萬事心想事成！🌺☀️
+🇹🇭 คำแปลไทย: ข้อความบนภาพ: เช้าวันใหม่อันเป็นมงคล / มั่งคั่งและเป็นสิริมงคล / สมปรารถนาในสิ่งคิด
+
+แคปชั่น: ดอกโบตั๋นงดงาม ดอกซากุระโปรยปรายทั่วฟ้า แสงแดดส่องผ่านสายหมอก นำพาพลังชีวิตอันสดใส ขอให้ชีวิตของคุณงดงามมีชีวาเหมือนหมู่มวลดอกไม้ การงานราบรื่น และสมหวังในทุกประการ!
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+9:16 vertical aspect ratio, semi-realistic 3D digital art style with rich vibrant colors and golden sunrise light rays. Vibrant pink Peony flowers fill the bottom foreground and overhanging cherry blossom branches extend from the upper left. In the background, a panoramic misty mountain valley at dawn with tiered waterfalls, ancient temple roofs peeking through golden clouds, a stone pathway lined with flowers, warm sunbeams, and red-crowned cranes soaring in the sky. In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "清晨吉祥！", Line 2: "富貴吉祥", Line 3: "心想事成".
 --------------------------------------------------
 
 
-🇹🇭 [ส่วนที่ 2: กลุ่มไทย ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน - 5 ชุด]
+🇹🇭 [ส่วนที่ 2: กลุ่มไทย ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน - 5 ชุด (ระบุวัน)]
 =================================================================
 
---- 🇹🇭 ชุดที่ 1 (ดอกกุหลาบสีชมพู) ---
-🖼️ ข้อความวางบนรูป: สวัสดีวันอังคาร สดชื่น แจ่มใส มีความสุขตลอดวัน
+--- 🇹🇭 ชุดที่ 1 (ดอกทานตะวัน และ ดอกเฟื่องฟ้า) ---
+🖼️ ข้อความบนท้องฟ้า: สวัสดีวันพุธ / เบิกบานรับสิ่งดี
 📝 แคปชั่นโพสต์:
-อรุณสวัสดิ์เช้าวันอังคารค่ะ 💖 ขอให้วันนี้เป็นวันที่ดี มีแต่รอยยิ้มและความสุข สุขภาพร่างกายแข็งแรง สมปรารถนาในทุกเรื่องนะคะ 🌹✨
-🎨 Image Prompt:
-Close up of a blooming pink rose with droplets of morning dew, bright natural daylight, soft blurry garden background, crisp details, 4:5 aspect ratio, no text
+สวัสดีวันพุธครับ ขอให้มีความสุข กายใจเบิกบาน 💚✨
+พบเจอแต่สิ่งดีงาม สุขภาพแข็งแรงตลอดวันครับ 🌻🌸
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+A 9:16 vertical aspect ratio 3D digital art piece with vibrant realistic lighting in green and golden color palette. In the upper bright sunrise sky, large bold glossy crimson-red Thai typography text with gleaming gold outlines and subtle golden light glow, reading Line 1: "สวัสดีวันพุธ" and Line 2: "เบิกบานรับสิ่งดี". Vibrant Bougainvillea branches dipping from the top-left corner, and bright Sunflowers blooming along the riverbank at the bottom foreground. The backdrop features a majestic traditional Chinese palace pavilion perched on a cliff beside a cascading waterfall, stone staircase with glowing stone lanterns, misty emerald mountains, and red-crowned cranes flying in the golden sunrise sky.
 --------------------------------------------------
 
---- 🇹🇭 ชุดที่ 2 (ดอกซากุระ) ---
-🖼️ ข้อความวางบนรูป: สุขใจในวันอังคาร ธรรมชาติต่างสร้างสรรค์ ความสุขสร้างได้ที่ใจเรา
+--- 🇹🇭 ชุดที่ 2 (ดอกคามิเลีย และ ดอกวิสทีเรีย) ---
+🖼️ ข้อความบนท้องฟ้า: อรุณสวัสดิ์วันพุธ / มั่งคั่งยั่งยืน
 📝 แคปชั่นโพสต์:
-สวัสดีเช้าวันอังคารสีชมพูสดใสค่ะ 🌸 อารมณ์ดีจิตใจเบิกบาน รับพลังบวกในเช้าวันใหม่ ขอให้โชคดีมีชัย ไร้โรคไร้ภัยกันทุกคนนะคะ 💗☀️
-🎨 Image Prompt:
-Delicate pink cherry blossoms blooming under bright morning sunlight, pastel blue sky background, dreamy light leaks, sharp focus, 4:5 aspect ratio, no text
+อรุณสวัสดิ์วันพุธ ขอให้เป็นวันที่ราบรื่น ร่ำรวย มั่งคั่ง 💚✨
+สุขภาพร่างกายแข็งแรง สุขใจตลอดทั้งวันครับ 🌺🌿
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+A 9:16 vertical aspect ratio 3D digital art style scene, rendered with lush emerald green foliage and golden sunlight. In the upper bright sunrise sky, large bold glossy crimson-red Thai typography text with gleaming gold outlines and subtle golden light glow, reading Line 1: "อรุณสวัสดิ์วันพุธ" and Line 2: "มั่งคั่งยั่งยืน". Cascading purple wisteria blossoms hanging from the top-left corner, while lush red Camellia flowers bloom abundantly at the bottom foreground. The center view reveals a tranquil classical Chinese garden with a wooden lakeside pavilion, stone arch bridge over turquoise water with swimming koi fish, misty mountain peaks, and white cranes flying high.
 --------------------------------------------------
 
---- 🇹🇭 ชุดที่ 3 (ดอกชวนชมสีชมพู) ---
-🖼️ ข้อความวางบนรูป: สวัสดีวันอังคาร รักษาสุขภาพ ขอให้มีโชคดีมีลาภ
+--- 🇹🇭 ชุดที่ 3 (ดอกเบญจมาศทอง และ ดอกแมกโนเลีย) ---
+🖼️ ข้อความบนท้องฟ้า: สวัสดีวันพุธ / โชคดีมีชัย
 📝 แคปชั่นโพสต์:
-อรุณสวัสดิ์วันอังคารค่ะ 😊 ส่งความห่วงใยในเช้าวันใหม่ ขอให้ทุกท่านพบเจอแต่สิ่งดีๆ งานราบรื่น สุขภาพแข็งแรง จิตใจแจ่มใสตลอดวันนะคะ 💕🌸
-🎨 Image Prompt:
-Vibrant pink adenium desert rose flowers blooming in bright morning sunshine, lush greenery backdrop, macro shot, vivid colors, 4:5 aspect ratio, no text
+สวัสดีวันพุธ ขอให้โชคดีมีชัย คิดหวังสิ่งใดก็สำเร็จสมปรารถนา 💚✨
+สุขภาพแข็งแรง มีแต่ความสุขกายสบายใจครับ 🌼🌸
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+A 9:16 vertical aspect ratio 3D digital artwork illuminated by golden morning sunbeams and green foliage. In the upper bright sunrise sky, large bold glossy crimson-red Thai typography text with gleaming gold outlines and subtle golden light glow, reading Line 1: "สวัสดีวันพุธ" and Line 2: "โชคดีมีชัย". Blooming pink Magnolia branches reaching down from the top-left corner, with golden Chrysanthemums spreading across the bottom foreground. In the background, a tranquil classical Chinese garden with a wooden lakeside pavilion, stone arch bridge over turquoise water with swimming golden koi fish, misty green mountain peaks, and flying white cranes.
 --------------------------------------------------
 
---- 🇹🇭 ชุดที่ 4 (ดอกบัวหลวงสีชมพู) ---
-🖼️ ข้อความวางบนรูป: คิดดี ทำดี จิตใจสงบ ชีวิตพบเจอแต่ความสุข
+--- 🇹🇭 ชุดที่ 4 (ดอกบัวชมพู และ ดอกเหมย) ---
+🖼️ ข้อความบนท้องฟ้า: อรุณสวัสดิ์วันพุธ / สุขกายสบายใจ
 📝 แคปชั่นโพสต์:
-สวัสดีวันอังคารสดใสค่ะ 🪷 ขอให้เช้านี้เติมเต็มพลังกายพลังใจ ปล่อยวางความทุกข์ รับแต่ความสุขและความสงบเข้ามาในชีวิตนะคะ 💖✨
-🎨 Image Prompt:
-Gorgeous pink lotus blossom opening in a serene pond, golden morning sunlight reflecting on water surface, high clarity, detailed petals, 4:5 aspect ratio, no text
+อรุณสวัสดิ์วันพุธ จิตใจแจ่มใส สุขภาพแข็งแรง 💚✨
+พบเจอแต่ความสงบและความสุขตลอดทั้งวันครับ 🪷🌸
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+A 9:16 vertical aspect ratio semi-realistic 3D digital illustration in green and warm gold morning hues. In the upper bright sunrise sky, large bold glossy crimson-red Thai typography text with gleaming gold outlines and subtle golden light glow, reading Line 1: "อรุณสวัสดิ์วันพุธ" and Line 2: "สุขกายสบายใจ". Delicate pink Plum Blossoms overhead framing the top-left corner, with blooming pink Lotus flowers floating in a pond at the bottom foreground. The background opens to a panoramic misty mountain valley at dawn with tiered waterfalls, ancient temple roofs peeking through golden clouds, stone pathway lined with flowers, and warm sunbeams.
 --------------------------------------------------
 
---- 🇹🇭 ชุดที่ 5 (ดอกเฟื่องฟ้าสีชมพู) ---
-🖼️ ข้อความวางบนรูป: สวัสดีวันอังคาร แจกรอยยิ้ม เติมความสุขให้กัน
+--- 🇹🇭 ชุดที่ 5 (ดอกกล้วยไม้เหลือง และ ดอกหอมหมื่นลี้) ---
+🖼️ ข้อความบนท้องฟ้า: สวัสดีวันพุธ / ราบรื่นร่ำรวย
 📝 แคปชั่นโพสต์:
-ทักทายเช้าวันอังคารอันแสนอบอุ่นค่ะ 🌺 ขอให้วันนี้เป็นวันแห่งความอุดมสมบูรณ์ มีกัลยาณมิตรที่ดี เดินทางไปไหนปลอดภัย โชคดีมีสุขตลอดวันนะคะ 💕☀️
-🎨 Image Prompt:
-Lush bright pink bougainvillea flowers cascading under morning sunlight, warm golden glow, clear detail, vibrant foliage background, 4:5 aspect ratio, no text
+สวัสดีวันพุธ ขอให้การงานราบรื่น การเงินร่ำรวย 💚✨
+สุขภาพสมบูรณ์แข็งแรง มีแต่รอยยิ้มและความสุขครับ 💛🌿
+🎨 Image Prompt (ก๊อปปี้ไปเจนภาพได้เลย):
+A 9:16 vertical aspect ratio vibrant 3D digital landscape bathed in warm golden morning sunlight with green weeping willow accents. In the upper bright sunrise sky, large bold glossy crimson-red Thai typography text with gleaming gold outlines and subtle golden light glow, reading Line 1: "สวัสดีวันพุธ" and Line 2: "ราบรื่นร่ำรวย". Golden Osmanthus branches dipping into frame from the top-left corner, with radiant yellow Phalaenopsis Orchids blooming vividly at the bottom foreground. Background depicts a serene Jiangnan ancient water town with white-walled houses, red lanterns, green weeping willow trees, traditional wooden boats on a golden river, and an arched stone bridge at sunrise.
 --------------------------------------------------
