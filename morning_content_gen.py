@@ -129,15 +129,16 @@ def get_thai_landscape_recipes(count: int = 5) -> str:
 
 
 def call_gemini_with_retry(prompt: str, schema_class):
+    """สลับไปใช้โมเดลสำรองอย่างรวดเร็ว หากตัวหลักคิวเต็ม (503)"""
     candidate_models = [
         "gemini-3.8-flash",
         "gemini-3.8-flash-lite",
-        "gemini-3.5-flash",
         "gemini-3.5-flash-lite",
+        "gemini-3.5-flash",
     ]
 
     for model_name in candidate_models:
-        for attempt in range(1, 5):
+        for attempt in range(1, 3):  # ลองแค่โมเดลละ 2 รอบพอ จะได้ไม่รอนาน
             try:
                 print(
                     f"กำลังเรียกใช้โมเดล {model_name} (รอบที่ {attempt})..."
@@ -155,19 +156,18 @@ def call_gemini_with_retry(prompt: str, schema_class):
                 return json.loads(response.text)
 
             except errors.ServerError:
-                wait_sec = 15 * attempt
                 print(
-                    f"⚠️ เซิร์ฟเวอร์คิวเต็ม (503) รอ {wait_sec} วินาทีแล้วลองใหม่..."
+                    f"⚠️ โมเดล {model_name} คิวเต็ม (503) รอ 5 วินาที..."
                 )
-                time.sleep(wait_sec)
+                time.sleep(5)
             except errors.ClientError as e:
                 print(
-                    f"⚠️ โมเดล {model_name} ไม่รองรับ ({e.code}) ข้ามไปใช้โมเดลถัดไป..."
+                    f"⚠️ โมเดล {model_name} ไม่รองรับ ({e.code}) ข้ามทันที..."
                 )
                 break
             except Exception as e:
-                print(f"⚠️ เกิดข้อผิดพลาดอื่น: {e} รอ 15 วินาที...")
-                time.sleep(15)
+                print(f"⚠️ ข้อผิดพลาด: {e} รอ 5 วินาที...")
+                time.sleep(5)
 
     raise RuntimeError(
         "ไม่สามารถสร้างคอนเทนต์ได้ เนื่องจากเซิร์ฟเวอร์ Google คิวเต็มทุกโมเดล"
