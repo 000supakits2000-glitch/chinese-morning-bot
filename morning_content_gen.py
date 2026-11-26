@@ -30,7 +30,7 @@ class ChinesePostItem(BaseModel):
         description="คำแปลภาษาไทยของข้อความบนภาพและแคปชั่น"
     )
     image_prompt_en: str = Field(
-        description="Prompt ภาษาอังกฤษละเอียดๆ สไตล์ทิวทัศน์จีนมงคล มีตัวอักษรพู่กันจีนสีแดงขอบทอง 3 บรรทัดลอยบนท้องฟ้าด้านบน สัดส่วน 9:16"
+        description="Prompt ภาษาอังกฤษละเอียดๆ สไตล์ทิวทัศน์จีนมงคลสีสันสดใสจัดจ้าน มีตัวอักษรพู่กันจีนสีแดงขอบทอง 3 บรรทัดลอยบนท้องฟ้าด้านบน สัดส่วน 9:16"
     )
 
 
@@ -43,7 +43,7 @@ class ThaiPostItem(BaseModel):
         description="แคปชั่นโพสต์ภาษาไทย 2-3 บรรทัด อวยพรให้มีความสุข สุขภาพแข็งแรง ใส่อีโมจิให้เหมาะสม"
     )
     image_prompt_en: str = Field(
-        description="Prompt ภาษาอังกฤษละเอียดๆ สไตล์ทิวทัศน์ไทยแท้ๆ (เรือนไทย ศาลาไทย ริมน้ำ ดอกไม้ไทย) แสงเช้าสดใส สัดส่วน 9:16 และต้องลงท้ายด้วย clean sky space, no text"
+        description="Prompt ภาษาอังกฤษละเอียดๆ สไตล์ทิวทัศน์ไทยแท้ๆ สีสันสดใสจัดจ้าน แสงเช้าเจิดจ้า สัดส่วน 9:16 และลงท้ายด้วย clean open sky space at the top, no text"
     )
 
 
@@ -62,33 +62,32 @@ def get_thai_now():
 
 def get_thai_day_info():
     days_map = {
-        0: ("วันจันทร์", "สีเหลือง / สีทอง"),
-        1: ("วันอังคาร", "สีชมพู"),
-        2: ("วันพุธ", "สีเขียว / สีทอง"),
-        3: ("วันพฤหัสบดี", "สีส้ม / สีแสด"),
-        4: ("วันศุกร์", "สีฟ้า / สีน้ำเงิน"),
-        5: ("วันเสาร์", "สีม่วง"),
-        6: ("วันอาทิตย์", "สีแดง"),
+        0: ("วันจันทร์", "สีเหลือง / สีทอง (Bright Yellow & Gold)"),
+        1: ("วันอังคาร", "สีชมพูสดใส (Vibrant Pink & Magenta)"),
+        2: ("วันพุธ", "สีเขียวมรกตและทอง (Emerald Green & Gold)"),
+        3: ("วันพฤหัสบดี", "สีส้มแสดและทอง (Vibrant Orange & Amber)"),
+        4: ("วันศุกร์", "สีฟ้าครามและน้ำเงินสด (Vivid Sky Blue & Turquoise)"),
+        5: ("วันเสาร์", "สีม่วงสดใส (Rich Royal Purple & Violet)"),
+        6: ("วันอาทิตย์", "สีแดงทับทิมและทอง (Brilliant Ruby Red & Gold)"),
     }
     return days_map[get_thai_now().weekday()]
 
 
 def get_chinese_landscape_recipes(count: int = 5) -> str:
-    """สุ่มโจทย์ภาพทิวทัศน์จีนมงคล 5 ชุด"""
     flowers = [
-        "vibrant pink Peony flowers and overhanging cherry blossom branches (ดอกโบตั๋นและซากุระ)",
-        "blooming pink Lotus flowers in the pond and pink Plum Blossoms overhead (ดอกบัวชมพูและดอกเหมย)",
-        "colorful pink and blue Hydrangeas with blooming roses along a stone balustrade (ดอกไฮเดรนเยียและกุหลาบ)",
-        "radiant yellow Phalaenopsis Orchids and golden Osmanthus blossoms (ดอกกล้วยไม้เหลืองและหอมหมื่นลี้)",
-        "lush red Camellia flowers and cascading wisteria blossoms (ดอกคามิเลียและวิสทีเรีย)",
-        "golden Chrysanthemums and pink Magnolia branches in bloom (ดอกเบญจมาศทองและแมกโนเลีย)",
+        "jewel-toned hot pink and gold Peony flowers with overhanging bright cherry blossom branches (ดอกโบตั๋นและซากุระสีสด)",
+        "vivid magenta-pink Lotus flowers in crystal water and bright pink Plum Blossoms overhead (ดอกบัวชมพูสดและดอกเหมย)",
+        "vibrant royal blue, violet, and pink Hydrangeas with lush crimson roses along a stone balustrade (ดอกไฮเดรนเยียและกุหลาบสีสด)",
+        "brilliant golden-yellow Phalaenopsis Orchids and radiant Osmanthus blossoms (ดอกกล้วยไม้เหลืองทองและหอมหมื่นลี้)",
+        "lush scarlet-red Camellia flowers and cascading vivid purple wisteria blossoms (ดอกคามิเลียแดงและวิสทีเรียม่วง)",
+        "radiant golden Chrysanthemums and vibrant pink Magnolia branches in full bloom (ดอกเบญจมาศทองและแมกโนเลียชมพู)",
     ]
 
     landscapes = [
-        "majestic traditional Chinese palace pavilion perched on a cliff beside a cascading waterfall, stone staircase with glowing stone lanterns, misty mountains, and red-crowned cranes flying in the golden sunrise sky",
-        "serene Jiangnan ancient water town with white-walled houses, red lanterns, weeping willow trees, traditional wooden boats on a golden river, and an arched stone bridge at sunrise",
-        "tranquil classical Chinese garden with a wooden lakeside pavilion, stone arch bridge over turquoise water with swimming koi fish, misty mountain peaks, and flying white cranes",
-        "panoramic misty mountain valley at dawn with tiered waterfalls, ancient temple roofs peeking through golden clouds, stone pathway lined with flowers, and warm sunbeams",
+        "majestic traditional Chinese palace pavilion perched on a cliff beside a sparkling turquoise cascading waterfall, stone staircase with glowing red-gold lanterns, misty emerald mountains, and red-crowned cranes flying in the radiant golden sunrise sky",
+        "serene Jiangnan ancient water town with white-walled houses, glowing red lanterns, lush green weeping willow trees, traditional wooden boats on a shimmering golden-blue river, and an arched stone bridge at sunrise",
+        "tranquil classical Chinese garden with a bright red-and-gold wooden lakeside pavilion, stone arch bridge over crystal-clear turquoise water with bright orange-and-white koi fish, misty mountain peaks, and flying white cranes",
+        "panoramic misty mountain valley at dawn with tiered crystal waterfalls, ornate temple roofs peeking through sunlit golden clouds, stone pathway lined with vivid flowers, and brilliant sunbeams",
     ]
 
     selected_flowers = random.sample(flowers, count)
@@ -101,22 +100,21 @@ def get_chinese_landscape_recipes(count: int = 5) -> str:
 
 
 def get_thai_landscape_recipes(count: int = 5) -> str:
-    """สุ่มโจทย์ภาพทิวทัศน์สไตล์ไทยแท้ๆ 5 ชุด"""
     thai_flowers = [
-        "blooming pink and white Thai sacred Lotus flowers with morning dew drops (ดอกบัวหลวงสีชมพูขาว)",
-        "cascading golden yellow Ratchaphruek (Golden Shower) blossoms hanging gracefully (ดอกราชพฤกษ์/ดอกคูนสีเหลืองทอง)",
-        "fragrant white and yellow Plumeria (Leelawadee) flowers beside a carved stone basin (ดอกลีลาวดี)",
-        "vibrant purple and pink Thai Vanda Orchids blooming in lush tropical greenery (ดอกกล้วยไม้แวนด้าไทย)",
-        "delicate white Thai Jasmine garlands and blooming Champaka flowers in a traditional silver bowl (ดอกมะลิและดอกจำปา)",
-        "colorful Bougainvillea and bright Marigold flowers along a wooden garden fence (ดอกเฟื่องฟ้าและดอกดาวเรือง)",
+        "vibrant jewel-toned pink and white Thai sacred Lotus flowers with sparkling morning dew drops (ดอกบัวหลวงสีชมพูขาวสดใส)",
+        "cascading brilliant golden-yellow Ratchaphruek (Golden Shower) blossoms glowing in sunlight (ดอกราชพฤกษ์สีเหลืองทองอร่าม)",
+        "lush white, golden-yellow, and bright pink Plumeria (Leelawadee) flowers beside a carved stone basin (ดอกลีลาวดีสีสด)",
+        "richly saturated purple, magenta, and blue Thai Vanda Orchids blooming in lush emerald greenery (ดอกกล้วยไม้แวนด้าไทยสีสด)",
+        "delicate white Thai Jasmine garlands and bright orange-gold Champaka flowers in a gleaming silver bowl (ดอกมะลิและดอกจำปา)",
+        "hyper-vibrant magenta Bougainvillea and brilliant orange-gold Marigold flowers along a wooden garden fence (ดอกเฟื่องฟ้าและดอกดาวเรืองสีสด)",
     ]
 
     thai_landscapes = [
-        "traditional Thai teakwood house (Ruen Thai) with high gabled roofs beside a peaceful canal at sunrise, wooden pier, gentle morning mist over water, and warm golden sunbeams",
-        "serene traditional Thai wooden pavilion (Sala Thai) overlooking a tranquil lotus pond in a lush tropical garden, misty mountains in the distance, and radiant morning sunlight",
-        "scenic Thai riverside countryside at dawn, traditional wooden rowboat floating on calm golden-lit water, lush green trees, distant gleaming golden temple spire (chedi) amidst morning mist",
-        "peaceful northern Thai Lanna-style wooden garden bridge over a clear forest stream, tropical ferns, glowing morning sun rays filtering through trees, and soft golden mist",
-        "tranquil Thai botanical water garden at sunrise, carved stone water fountain, blooming lotus pond with swimming colorful fish, and warm golden light illuminating the misty sky",
+        "traditional Thai teakwood house (Ruen Thai) with ornate golden-trimmed gabled roofs beside a sparkling canal at sunrise, wooden pier, glowing morning mist over turquoise-gold water, and radiant sunbeams",
+        "serene traditional Thai wooden pavilion (Sala Thai) overlooking a crystal-clear lotus pond in a lush vibrant tropical garden, misty emerald mountains in the distance, and brilliant golden morning sunlight",
+        "scenic Thai riverside countryside at dawn, traditional wooden rowboat floating on shimmering golden-blue water, lush vivid green trees, distant gleaming golden temple spire (chedi) amidst sunlit mist",
+        "peaceful northern Thai Lanna-style wooden garden bridge over a crystal-clear forest stream, lush emerald ferns, brilliant golden sun rays filtering through trees, and vibrant morning glow",
+        "tranquil Thai botanical water garden at sunrise, carved stone water fountain, blooming lotus pond with colorful swimming fish, and radiant golden light illuminating a crisp blue-and-gold sky",
     ]
 
     selected_flowers = random.sample(thai_flowers, count)
@@ -138,7 +136,7 @@ def call_gemini_with_retry(prompt: str, schema_class):
     ]
 
     for model_name in candidate_models:
-        for attempt in range(1, 3):  # ลองแค่โมเดลละ 2 รอบพอ จะได้ไม่รอนาน
+        for attempt in range(1, 3):
             try:
                 print(
                     f"กำลังเรียกใช้โมเดล {model_name} (รอบที่ {attempt})..."
@@ -184,10 +182,10 @@ def generate_chinese_posts():
     อ้างอิงตามโจทย์ภาพด้านล่างนี้ทีละชุด:
     {zh_recipes}
     
-    โครงสร้าง Prompt ภาพ (image_prompt_en) ทุกชุด:
-    - สัดส่วนแนวตั้ง `9:16 vertical aspect ratio` ภาพวาดดิจิทัลอาร์ต 3D กึ่งภาพถ่ายสมจริง สีสันสดใสเจิดจ้า แสงอาทิตย์ยามเช้าส่องประกายอบอุ่น
-    - กิ่งดอกไม้มงคลยื่นลงมาจากมุมบนซ้าย และพุ่มดอกไม้บานสะพรั่งเต็มพื้นที่ด้านล่างตามโจทย์
-    - ทิวทัศน์ตรงกลางและฉากหลังตามโจทย์ มีนกกระเรียนมงคล (red-crowned cranes) บินบนท้องฟ้าสีทองอ่อนๆ
+    โครงสร้าง Prompt ภาพ (image_prompt_en) ทุกชุด (ต้องเน้นสีสันสดใสเจิดจ้า HDR):
+    - สัดส่วนแนวตั้ง `9:16 vertical aspect ratio` ภาพวาดดิจิทัลอาร์ต 3D กึ่งภาพถ่ายสมจริง **เน้นสีสันสดใสอิ่มตัวสูง แสงแดดยามเช้าเจิดจ้า คมชัดระดับ HDR**: `Hyper-vibrant saturated colors, rich vivid color palette, HDR quality, breathtaking crystal-clear 8k digital painting and 3D photorealistic scenery, radiant golden sunrise sunbeams, luminous morning glow`
+    - กิ่งดอกไม้มงคลสีสดยื่นลงมาจากมุมบนซ้าย และพุ่มดอกไม้สีสดใสบานสะพรั่งเต็มพื้นที่ด้านล่างตามโจทย์
+    - ทิวทัศน์ตรงกลางและฉากหลังตามโจทย์ มีนกกระเรียนมงคล (red-crowned cranes) บินบนท้องฟ้าสีฟ้าครามตัดแสงทองยามเช้า
     - **ข้อความลอยเด่นบนท้องฟ้าด้านบน (ไม่มีป้ายแดง):** `In the upper bright sunrise sky, large bold glossy crimson-red Chinese calligraphy text with gleaming gold outlines and small golden auspicious cloud motifs, reading Line 1: "[text_line_1_zh]", Line 2: "[text_line_2_zh]", Line 3: "[text_line_3_zh]"`
     
     กฎเหล็กของกลุ่มจีนที่ห้ามละเมิดเด็ดขาด:
@@ -206,25 +204,25 @@ def generate_thai_posts():
     คุณคือผู้เชี่ยวชาญการสร้าง Prompt ภาพทิวทัศน์และดอกไม้สไตล์ไทยแท้ๆ สำหรับโพสต์สวัสดีตอนเช้าในกลุ่มคนไทย (ภาพสวย ดอกไม้งาม สวัสดีกันทุกวัน)
     จงคิดคอนเทนต์สำหรับวันนี้ ({day_th} โทนสี{day_color}) จำนวน **5 ชุด** ไม่ซ้ำกัน
     
-    อ้างอิงตามโจทย์ภาพด้านล่างนี้ทีละชุด (ปรับโทนสีดอกไม้หรือแสงยามเช้าให้เข้ากับ{day_th} {day_color}):
+    อ้างอิงตามโจทย์ภาพด้านล่างนี้ทีละชุด (ปรับโทนสีดอกไม้หรือแสงยามเช้าให้เข้ากับ{day_th} {day_color} แบบสีสดใสจัดจ้าน):
     {th_recipes}
     
     ข้อกำหนดสำคัญสำหรับกลุ่มไทย:
     1. **text_for_manual_overlay_th:** คิดข้อความสวัสดีตามวัน (เช่น "สวัสดี{day_th} ขอให้สุขใจ...") หรือคำคมข้อคิดดีๆ ภาษาไทยสั้นๆ อ่านง่าย เพื่อแยกออกมาให้ผู้ใช้เอาไปพิมพ์แปะลงภาพเองทีหลัง
-    2. **image_prompt_en (ห้ามใส่ตัวหนังสือในภาพเด็ดขาด):**
+    2. **image_prompt_en (ห้ามใส่ตัวหนังสือในภาพเด็ดขาด และต้องเน้นสีสดใสจัดจ้า):**
        - เขียน Prompt ภาษาอังกฤษบรรยายภาพทิวทัศน์ไทยและดอกไม้ไทยตามโจทย์ สัดส่วนแนวตั้ง `9:16 vertical aspect ratio`
-       - เน้นสไตล์ภาพวาดดิจิทัลอาร์ตเสมือนจริง แสงแดดยามเช้าอบอุ่นสีทอง (Vibrant luminous digital painting and photorealistic Thai scenery, warm golden sunrise rays, peaceful morning mist, ultra-detailed)
+       - **ต้องเน้นสีสันสดใสอิ่มตัวสูง แสงแดดยามเช้าเจิดจ้า คมชัดระดับ HDR:** `Hyper-vibrant saturated colors, rich vivid color palette, HDR quality, luminous 8k digital painting and photorealistic Thai scenery, radiant golden sunrise rays, crystal-clear water reflections, high contrast`
        - **ห้าม** มีสถาปัตยกรรมจีนในภาพนี้ ให้เป็นบรรยากาศไทยแท้ๆ เท่านั้น
-       - **ต้องเว้นพื้นที่ท้องฟ้าด้านบนให้โล่งสะอาดตา และลงท้าย Prompt ทุกชุดด้วย:** `clean open sky space at the top, no text, no letters, no watermark`
+       - **ต้องเว้นพื้นที่ท้องฟ้าด้านบนให้โล่งสะอาดตา และลงท้าย Prompt ทุกชุดด้วย:** `clean open bright sky space at the top, no text, no letters, no watermark`
     """
     return call_gemini_with_retry(prompt, ThaiBatch)["posts"]
 
 
 if __name__ == "__main__":
-    print("=== เริ่มสร้างคอนเทนต์ส่วนที่ 1: กลุ่มจีน (มีตัวอักษรจีนในภาพ - 5 ชุด) ===")
+    print("=== เริ่มสร้างคอนเทนต์ส่วนที่ 1: กลุ่มจีน (สีสดใส + มีอักษรจีนในภาพ - 5 ชุด) ===")
     zh_posts = generate_chinese_posts()
 
-    print("\n=== เริ่มสร้างคอนเทนต์ส่วนที่ 2: กลุ่มไทย (ภาพสไตล์ไทย ไม่มีตัวหนังสือในภาพ - 5 ชุด) ===")
+    print("\n=== เริ่มสร้างคอนเทนต์ส่วนที่ 2: กลุ่มไทย (สีสดใส + ภาพสไตล์ไทย ไม่มีตัวหนังสือ - 5 ชุด) ===")
     th_posts = generate_thai_posts()
 
     now_str = get_thai_now().strftime("%d/%m/%Y เวลา %H:%M น.")
@@ -234,7 +232,7 @@ if __name__ == "__main__":
     lines.append("=" * 65)
     lines.append(f"📅 อัปเดตล่าสุด: {day_th}ที่ {now_str} (เวลาไทย)")
     lines.append(
-        f"🎨 โทนสีประจำวัน (กลุ่มไทย): {day_color} | จำนวน: กลุ่มละ 5 ชุด"
+        f"🎨 โทนสีประจำวัน (กลุ่มไทย): {day_color} | โหมด: สีสดใสเจิดจ้า (Hyper-Vibrant HDR)"
     )
     lines.append("=" * 65)
 
@@ -279,4 +277,4 @@ if __name__ == "__main__":
     with open("today_post.txt", "w", encoding="utf-8") as f:
         f.write(output_text)
 
-    print("\n✅ บันทึกคอนเทนต์ทั้ง 10 ชุด ลงไฟล์ today_post.txt สำเร็จเรียบร้อย!")
+    print("\n✅ บันทึกคอนเทนต์โหมดสีสดใสทั้ง 10 ชุด ลงไฟล์ today_post.txt สำเร็จเรียบร้อย!")
